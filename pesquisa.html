@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStory Ink&Paper - Pesquisa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<!-- Qualquer tipo de pesquisa resultará nessa pagina, mudando de acordo com a pesquisa -->
+<!-- Qualquer catecoria que for selecionada resultara nessa pagina, mudando de acordo com oque foi selecionado-->
+
+<body class="bg-lt-blu d-flex flex-column min-vh-100">
+    
+    <style>
+
+        .bg-lt-blu {
+            background-color: #e8fcff;
+        }
+
+        .bg-lt-org {
+            background-color: #f4dbc3;
+        }
+
+        .clr-blu {
+            border-color: #94cad5;
+        }
+
+        .bg-blu {
+            color: #05849c;
+        }
+
+        .btn-outline-orange {
+            color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+            border-radius: 5px;
+        }
+
+        .btn-outline-orange:hover {
+            background-color: #fa5d06 !important;
+            color: white !important;
+            border-radius: 5px;
+        }
+
+        .dropdown-toggle.btn-outline-orange:focus {
+            color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+            box-shadow: none !important;
+        }
+
+        .dropdown-toggle.btn-outline-orange:active {
+            color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+            box-shadow: none !important;
+        }
+
+        .dropdown-menu.btn-outline-orange {
+            background-color: white !important;
+        }
+
+        .dropdown-menu.btn-outline-orange .dropdown-item {
+            color: #fa5d06 !important;
+        }
+
+        .dropdown-menu.btn-outline-orange .dropdown-item:hover {
+            background-color: #fa5d06 !important;
+            color: white !important;
+        }
+
+        .btn-outline-orange.dropdown-toggle:focus:not(.collapsed),
+        .btn-outline-orange.dropdown-toggle:active:not(.collapsed),
+        .btn-outline-orange.dropdown-toggle:hover:not(.collapsed) {
+            color: white !important;
+            background-color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            background-color: transparent !important;
+            color: #fa5d06 !important;
+        }
+
+        .navbar-nav .nav-link.active:hover {
+            background-color: #fa5d06 !important;
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link.active:focus,
+        .navbar-nav .nav-link.active:active {
+            background-color: #fa5d06 !important;
+            color: white !important;
+            box-shadow: none !important;
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: #fa5d06;
+        }
+
+        .card-img-top {
+           
+            height: 270px;
+        }
+    </style>
+
+    <header>
+        <nav class="navbar navbar-expand-lg shadow navbar-light bg-lt-org">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Title2 (NoBackground).png" alt="Logo" class="img-fluid" style="max-height: 35px;">
+                </a>
+
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarNav">
+                    <form class="d-flex flex-grow-1" action="pesquisa.html">
+                        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                        <button class="btn btn-outline-orange" type="submit">Pesquisar</button>
+                    </form>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn-outline-orange" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-grid-3x3-gap-fill"></i> Categorias
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                                <div class="row">
+                                    <div class="col">
+                                        <li><a class="dropdown-item" href="pesquisa.html">Drama</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Fantasia</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Ficção</a></li>
+                                    </div>
+                                    <div class="col">
+                                        <li><a class="dropdown-item" href="pesquisa.html">Ficção Científica</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">HQs</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Infanto Juvenil</a></li>
+                                    </div>
+                                    <div class="col">
+                                        <li><a class="dropdown-item" href="pesquisa.html">Romance</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Suspense</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Terror</a></li>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-orange" href="carrinho.html">
+                                <i class="bi bi-cart3"></i> Carrinho
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-orange" href="login.html">
+                                <i class="bi bi-person"></i> Entrar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-3">
+        <h1 class="text-center bg-blu">Resultados</h1>
+        <hr class="bg-blu">
+            <div class="row row-cols-2 row-cols-md-4 g-3 m-3">
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - HQs/Maus/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">Maus</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - Ficção/1984/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">1984</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - Terror/O Chamado de Cthulhu e Outros Contos/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">O Chamado de Cthulhu e Outros Contos</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - Ficção Científica/Duna/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">Duna</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row row-cols-2 row-cols-md-4 g-3 m-3">
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - Romance/Dom Casmurro/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">Dom Casmurro</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - Ficção Científica/Neuromancer/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">Neuromancer</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - Infanto Juvenil/Alice no País das Maravilhas/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">Alice no País das Maravilhas</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 clr-blu">
+                        <a href="#"><img src="/Livros/Gênero - Ficção Científica/Guerra dos Mundos/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h6 class="card-title">Guerra dos Mundos</h6>
+                            <p class="card-text">Autor:</p>
+                            <div class="d-grid">
+                                <a href="produto.html" class="btn btn-outline-orange btn-buy">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="bg-blu">
+
+    <footer class="footer mt-auto py-2 bg-lt-org">
+        <div class="container text-center">
+            <img src="Logo2 (NoBackground).png" alt="Logo" class="img-fluid" style="max-height: 30px;">
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

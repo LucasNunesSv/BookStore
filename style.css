@@ -1,0 +1,154 @@
+:root {
+    --main-yellow-color: #fa5d06;
+    --main-gray-color: rgba(211, 211, 211, 0.637);
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway";
+}
+
+
+.btnStyle{
+    background-color: white;
+    color: var(--main-yellow-color);
+    border: #fa5d06 solid 1px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.btnStyle:hover{
+    background-color: var(--main-yellow-color);
+    color: white;
+    border: #fa5d06 solid 1px;
+}
+
+.inputStyle{
+    padding: 10px 10px;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 17px;
+    margin-bottom: 20px;   
+    border-radius: 5px;
+    border: rgb(131, 131, 131) solid 2px;
+}
+
+.inputStyle::placeholder{
+    color: rgb(131, 131, 131) solid 2px;
+}
+.inputStyle:focus{
+    border: rgb(131, 131, 131) solid 2px;
+}
+
+main{
+    min-height: 80vh;
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: row;
+    padding: 0 2vw;
+}
+
+main .containerSignIn{
+    display: contents;
+}
+
+main .containerSignUp{
+    display: none;
+}
+
+main .aceessCodeColum{
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-top: 10%;
+    margin-right: 10px;
+}
+
+main .signInColum, main .signUpColum{
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-top: 10%;
+    margin-left: 10px;
+}
+
+main .aceessCodeColum h1, main .signInColum h1, main .signUpColum h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #05849c;
+    font-weight: 500;
+}
+
+main .aceessCodeColum .socialLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .aceessCodeColum .socialLogin{
+    background-color: white;
+    border: #fa5d06 solid 1px;
+    color: var(--main-yellow-color);
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+main .aceessCodeColum .socialLogin:hover{
+    background-color: var(--main-yellow-color);
+    border: #fa5d06 solid 1px;
+    color: white;
+}
+
+main .aceessCodeColum .socialLogin img{
+    width: 30px;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+main .btnContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main .btnContainer .backBtn{
+    color: white;
+    background-color: var(--main-yellow-color);
+    border: none;
+}
+
+main .btnContainer .backBtn:hover{
+    color: var(--main-yellow-color);
+    background-color: white;
+    border: #fa5d06 solid 1px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .main_login {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .aceessCodeColum {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .signInColum, .signUpColum {
+        width: 90%;
+    }
+}

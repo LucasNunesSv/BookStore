@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStory Ink&Paper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<!-- O alerta sera inutil após o backend provavelmente -->
+<!-- toda parte lógica é feita pelo backend, logo, a maior parte do script será retirado se tudo ocorrer como deveria, suponho -->
+<!-- No Caso de de um login bem sussedido, é so retira a palvra "entrar" e deixar o icon, vai parecer que entrou, ou sla-->
+
+<body class="bg-lt-blu d-flex flex-column min-vh-100">
+
+    <style>
+        .bg-lt-blu {
+            background-color: #e8fcff;
+        }
+
+        .bg-lt-org {
+            background-color: #f4dbc3;
+        }
+
+        .clr-blu {
+            border-color: #94cad5;
+        }
+
+        .bg-blu {
+            color: #05849c;
+        }
+
+        .btn-outline-orange {
+            color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+            border-radius: 5px;
+        }
+
+        .btn-outline-orange:hover {
+            background-color: #fa5d06 !important;
+            color: white !important;
+            border-radius: 5px;
+        }
+
+        .dropdown-toggle.btn-outline-orange:focus {
+            color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+            box-shadow: none !important;
+        }
+
+        .dropdown-toggle.btn-outline-orange:active {
+            color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+            box-shadow: none !important;
+        }
+
+        .dropdown-menu.btn-outline-orange {
+            background-color: white !important;
+        }
+
+        .dropdown-menu.btn-outline-orange .dropdown-item {
+            color: #fa5d06 !important;
+        }
+
+        .dropdown-menu.btn-outline-orange .dropdown-item:hover {
+            background-color: #fa5d06 !important;
+            color: white !important;
+        }
+
+        .btn-outline-orange.dropdown-toggle:focus:not(.collapsed),
+        .btn-outline-orange.dropdown-toggle:active:not(.collapsed),
+        .btn-outline-orange.dropdown-toggle:hover:not(.collapsed) {
+            color: white !important;
+            background-color: #fa5d06 !important;
+            border-color: #fa5d06 !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            background-color: transparent !important;
+            color: #fa5d06 !important;
+        }
+
+        .navbar-nav .nav-link.active:hover {
+            background-color: #fa5d06 !important;
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link.active:focus,
+        .navbar-nav .nav-link.active:active {
+            background-color: #fa5d06 !important;
+            color: white !important;
+            box-shadow: none !important;
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: #fa5d06;
+        }
+
+        .card-img-top {
+           
+            height: 270px;
+        }
+    </style>
+
+    <header>
+        <nav class="navbar navbar-expand-lg shadow navbar-light bg-lt-org">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Title2 (NoBackground).png" alt="Logo" class="img-fluid" style="max-height: 35px;">
+                </a>
+
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarNav">
+                    <form class="d-flex flex-grow-1" action="pesquisa.html">
+                        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                        <button class="btn btn-outline-orange" type="submit">Pesquisar</button>
+                    </form>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn-outline-orange" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-grid-3x3-gap-fill"></i> Categorias
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                                <div class="row">
+                                    <div class="col">
+                                        <li><a class="dropdown-item" href="pesquisa.html">Drama</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Fantasia</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Ficção</a></li>
+                                    </div>
+                                    <div class="col">
+                                        <li><a class="dropdown-item" href="pesquisa.html">Ficção Científica</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">HQs</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Infanto Juvenil</a></li>
+                                    </div>
+                                    <div class="col">
+                                        <li><a class="dropdown-item" href="pesquisa.html">Romance</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Suspense</a></li>
+                                        <li><a class="dropdown-item" href="pesquisa.html">Terror</a></li>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-orange" href="carrinho.html">
+                                <i class="bi bi-cart3"></i> Carrinho
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-orange" href="login.html">
+                                <i class="bi bi-person"></i> Entrar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carouselSlides" class="carousel slide col-md-12" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+        
+        <ol class="carousel-indicators">
+        <li data-bs-target="#carouselSlides" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselSlides" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselSlides" data-bs-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+        <div class="carousel-item active" aria-hidden="true">
+            <img src="Banner 1.jpg" class="d-block w-100 img-fluid carousel-img" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="Banner 2.jpg" class="d-block w-100 img-fluid carousel-img" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="Banner 3.jpg" class="d-block w-100 img-fluid carousel-img" alt="Slide 3">
+        </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlides" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSlides" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    <hr class="my-4 bg-blu">
+    <div id="livrosCarousel" class="carousel slide">
+        <h3 class="text-center bg-blu">Livros Recomendados</h3>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Drama/A Menina que Roubava Livros/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title text-dark">A Menina que Roubava Livros</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Drama/A Revolução dos Bichos/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">A Revolução dos Bichos</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Drama/O Alquimista/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Alquimista</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Drama/O Apanhador no Campo de Centeio/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Apanhador no Campo de Centeio</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Drama/O Diário de Anne Frank/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Diário de Anne Frank</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                    
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Drama/O Sol é para Todos/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Sol é para Todos</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Fantasia/100 Anos de Solidão/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">100 Anos de Solidão</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Fantasia/As Crônicas de Gelo e Fogo - Livro 1/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">As Crônicas de Gelo e Fogo - Livro 1</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Fantasia/As Crônicas de Narnia - O Leão, A Feiticeira e o Guarda-Roupa/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">As Crônicas de Narnia - O Leão, A Feiticeira e o Guarda-Roupa</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Fantasia/As Crônicas de Nárnia - O Sobrinho do Mago/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">As Crônicas de Nárnia - O Sobrinho do Mago</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Fantasia/Harry Potter e a Ordem da Fenix/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Harry Potter e a Ordem da Fenix</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Fantasia/O Lar da Senhora Peregrine Para Crianças Peculiares/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Lar da Senhora Peregrine Para Crianças Peculiares</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção Científica/O Guia do Mochileiro das Galáxias/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Guia do Mochileiro das Galáxias</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção Científica/Duna/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Duna</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção Científica/Eu Sou A Lenda/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Eu Sou A Lenda</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção Científica/Fundação/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Fundação</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção Científica/Guerra dos Mundos/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Guerra dos Mundos</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção Científica/Neuromancer/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Neuromancer</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#livrosCarousel" data-bs-slide="prev" style="max-width: 35px;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#livrosCarousel" data-bs-slide="next" style="max-width: 35px;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <hr class="my-4 bg-blu">
+
+    <div id="livrosCarousel2" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção/1984/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">1984</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção/Jogador Número Um/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Jogador Número Um</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção/Jurrassic Park/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Jurrassic Park</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção/O Fabricante de Lágrimas/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Fabricante de Lágrimas</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção/O Mundo Perdido/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Mundo Perdido</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Ficção/O Prazer da Vingança/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Prazer da Vingança</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - HQs/Crise nas Infinitas Terras/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Crise nas Infinitas Terras</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - HQs/Guerras Secretas/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Guerras Secretas</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - HQs/Maus/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Maus</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - HQs/Sandman - Vol.1/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Sandman - Vol.1</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - HQs/Sandman - Vol.2/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Sandman - Vol.2</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - HQs/Watchman/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Watchman</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Infanto Juvenil/Alice no País das Maravilhas/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Alice no País das Maravilhas</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Infanto Juvenil/Anne de Green Gables/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Anne de Green Gables</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Infanto Juvenil/As Crônicas de Spiderwick - O Guia de Campo/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">As Crônicas de Spiderwick - O Guia de Campo</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Infanto Juvenil/Como Treinar seu Dragão/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Como Treinar seu Dragão</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Infanto Juvenil/O Pequeno Príncipe/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Pequeno Príncipe</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Infanto Juvenil/Percy Jackson e o Ladrão de Raios/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Percy Jackson e o Ladrão de Raios</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#livrosCarousel2" data-bs-slide="prev" style="max-width: 35px;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#livrosCarousel2" data-bs-slide="next" style="max-width: 35px;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <hr class="my-4 bg-blu">
+
+    <div id="livrosCarousel3" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Romance/A hipótese do Amor/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">A hipótese do Amor</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Romance/Dom Casmurro/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Dom Casmurro</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Romance/Fama de Garota Má/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Fama de Garota Má</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Romance/Hoje Preferia Não ter me Encontrado/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Hoje Preferia Não ter me Encontrado</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Romance/Orgulho e Preconceito/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Orgulho e Preconceito</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Romance/É Assim Que Começa/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">É Assim Que Começa</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Suspense/A Carícia da Morte/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">A Carícia da Morte</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Suspense/O Código Da Vince/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Código Da Vince</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Suspense/Se Eu Fechar os Olhos Agora/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Se Eu Fechar os Olhos Agora</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Suspense/Segredos Mortais/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Segredos Mortais</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Suspense/Tubarão/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Tubarão</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Suspense/Lady Killers - Assassinas em Série/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">Lady Killers - Assassinas em Série</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-md-6 g-2 m-3">
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Terror/A Assombração da Casa da Colina/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">A Assombração da Casa da Colina</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Terror/IT - A Coisa/Livro-Capa.jpeg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">IT - A Coisa</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Terror/O Chamado de Cthulhu e Outros Contos/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Chamado de Cthulhu e Outros Contos</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Terror/O Cimitério/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Cimitério</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Terror/O Exorcista/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Exorcista</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 clr-blu">
+                            <a href="produto.html"><img src="/Livros/Gênero - Terror/O Iluminado/Livro_Capa.jpg" class="card-img-top" alt="..."></a>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h6 class="card-title">O Iluminado</h6>
+                                <p class="card-text">R$10.00</p>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-orange btn-buy">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#livrosCarousel3" data-bs-slide="prev" style="max-width: 35px;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#livrosCarousel3" data-bs-slide="next" style="max-width: 35px;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <hr class="my-4 bg-blu">
+
+    <footer class="footer mt-auto py-2 bg-lt-org">
+        <div class="container text-center">
+            <img src="Logo2 (NoBackground).png" alt="Logo" class="img-fluid" style="max-height: 30px;">
+        </div>
+    </footer>
+
+    <script>
+
+        var comprarButtons = document.querySelectorAll('.btn-buy');
+        comprarButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                alert('Um item foi adicionado ao carrinho!');
+            });
+        });
+        
+    </script>
+
+</body>
+</html>
